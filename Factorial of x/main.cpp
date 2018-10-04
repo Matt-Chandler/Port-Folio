@@ -1,88 +1,49 @@
 #include <iostream>
 #include <cassert>
 
-int factorial(int factSel)
+int Factorial(int operand)
 {
-    std::cout << factSel << "! = ";
-    if (factSel < 0)
+    if (operand < 0)
     {
         return 0;
     }
 
-
-    if (factSel == 0 || factSel == 1)
+    if (operand <= 1)
     {
-        int result = 1;
-        return result;
+        return 1;
     }
 
-    int result = 0;
-    int index = 2;
-    int factor = 1;
+    int factorial = 1;
 
-    for (int lpCount = 1; lpCount < factSel; lpCount++)
+    for (int index = 2; index <= operand; index++)
     {
-        //Index * Factor = Result, Factor = Result
-        result = (index * factor);
-        factor = result; 
-        index++;
+        factorial *= index;
     }
 
-    return result;
+    return factorial;
 }
 
+void TestNFactorial(int operand, int expectedFactorial)
+{
+    int actualFactorial = Factorial(operand);
+    assert(expectedFactorial == actualFactorial);
+    std::cout << operand << "! = " << actualFactorial << std::endl;
+}
 
 int main()
 {
-    int answer = 0;
-
-    answer = factorial(-1);
-    assert(answer == 0);
-    std::cout << answer << std::endl;
-
-    answer = factorial(0);
-    assert(answer == 1);
-    std::cout << answer << std::endl;
-
-    answer = factorial(1);
-    assert(answer == 1);
-    std::cout << answer << std::endl;
-
-    answer = factorial(2);
-    assert(answer == 2);
-    std::cout << answer << std::endl;
-
-    answer = factorial(3);
-    assert(answer == 6);
-    std::cout << answer << std::endl;
-
-    answer = factorial(4);
-    assert(answer == 24);
-    std::cout << answer << std::endl;
-
-    answer = factorial(5);
-    assert(answer == 120);
-    std::cout << answer << std::endl;
-
-    answer = factorial(6);
-    assert(answer == 720);
-    std::cout << answer << std::endl;
-
-    answer = factorial(7);
-    assert(answer == 5040);
-    std::cout << answer << std::endl;
-
-    answer = factorial(8);
-    assert(answer == 40320);
-    std::cout << answer << std::endl;
-
-    answer = factorial(9);
-    assert(answer == 362880);
-    std::cout << answer << std::endl;
-
-    answer = factorial(10);
-    assert(answer == 3628800);
-    std::cout << answer << std::endl;
+    TestNFactorial(-1, 0);
+    TestNFactorial(0, 1);
+    TestNFactorial(1, 1);
+    TestNFactorial(2, 2);
+    TestNFactorial(3, 6);
+    TestNFactorial(4, 24);
+    TestNFactorial(5, 120);
+    TestNFactorial(6, 720);
+    TestNFactorial(7, 5040);
+    TestNFactorial(8, 40320);
+    TestNFactorial(9, 362880);
+    TestNFactorial(10, 3628800);
 
     return 0;
 }
