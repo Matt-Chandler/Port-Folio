@@ -1,0 +1,3 @@
+﻿  main.cpp
+f:\c++\source\repos\rng guessing game\rng guessing game\main.cpp(21): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  RNG Guessing Game.vcxproj -> F:\C++\source\repos\RNG Guessing Game\Debug\RNG Guessing Game.exe
